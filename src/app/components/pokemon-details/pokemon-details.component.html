@@ -1,0 +1,50 @@
+<div class="pokemon-details-header">
+  <h1>Pokemon Details Component</h1>
+</div>
+
+<div class="back-link">
+  <a [routerLink]="'/pokemons'">← All pokemons</a>
+</div>
+
+<ng-container *ngIf="pokemon$ | async as pokemon; else loadedPokemon">
+
+  <ng-container *ngTemplateOutlet="pokemon.item !== null ? pokemonTemplate : notFoundPokemon"></ng-container>
+
+  <ng-template #pokemonTemplate>
+    <ng-container *ngIf="pokemon.item !== null">
+
+      <div class="pokemon">
+        <div class="pokemon__name">{{ pokemon.item.name }}</div>
+        <div>
+          <span>Types: </span>
+          <ng-container *ngFor="let type of pokemon.item.types">
+            <span>
+              {{ type.type.name }} 
+            </span>
+          </ng-container> 
+        </div>
+        <div>
+          <img [src]="pokemon.item.sprites.front_default">
+          <img [src]="pokemon.item.sprites.front_shiny">
+        </div>
+      </div>
+
+    </ng-container>
+
+  </ng-template>
+
+</ng-container>
+
+
+<ng-template #notFoundPokemon>
+  <div>
+    Not Found pokemon
+  </div>
+</ng-template>
+
+<ng-template #loadedPokemon>
+  <div>
+    ... Loaded pokemon
+  </div>
+</ng-template>
+

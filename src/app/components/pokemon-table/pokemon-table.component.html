@@ -1,0 +1,43 @@
+<div class="pokemon-table-header">
+  <h1>Pokemon Table Component</h1>
+</div>
+
+<div class="pokemon-table">
+  <table>
+    <thead>
+      <tr>
+        <th class="pokemon-table__title">Name</th>
+        <th class="pokemon-table__types">Types</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngIf="pokemons$ | async as pokemons">
+        <tr *ngFor="let pokemon of pokemons">
+          <td>
+            <a [routerLink]="'/pokemons/' + pokemon.id" class="pokemon-table__name">
+              {{ pokemon.name }}
+            </a>
+          </td>
+          <td>
+              <ng-container *ngFor="let type of pokemon.types">
+                <button 
+                class="pokemon-table__type"
+                appearance="whiteblock-active"
+                tuiButton>
+                  {{ type.type.name }} 
+                </button>
+              </ng-container>
+          </td>
+        </tr>
+      </ng-container>      
+    </tbody>
+  </table>
+</div>
+
+<button class="btn-show-more"
+  tuiButton
+  size="m"
+  (click)="clickShowMore()"
+>
+  Show more +10
+</button>
