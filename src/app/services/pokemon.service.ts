@@ -33,7 +33,7 @@ export class PokemonService {
       skipWhile(statePokemons => {
         const countPokemons = Object.keys(statePokemons.pokemonsObj).length;
 
-        return countPokemons === 0.
+        return countPokemons === 0;
       }),
       map(() => {
         return this.syncGetById(id);
