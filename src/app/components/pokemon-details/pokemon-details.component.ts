@@ -14,12 +14,15 @@ export class PokemonDetailsComponent {
     map(params => params['id']),
     tap(id => {
       if (id === undefined) {
+				// Если id действительно undefined, то выполняется перенаправление. this._router.navigateByUrl('/pokemons');
         this._router.navigateByUrl('/pokemons');
         return;
       }
     }),
     map(id => id as string)
   );
+	//id передается в app-routing в дочьке LayoutMainComponent в пути pokemons
+	//Доступ к параметрам маршрута происходит после того, как Angular Router обрабатывает URL. Во время активации соответствующего компонента.
 
   public pokemon$: Observable<{
     item: Pokemon | null;

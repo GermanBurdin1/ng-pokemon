@@ -33,6 +33,9 @@ import { TuiButtonModule } from '@taiga-ui/core';
     TuiButtonModule
 ],
   providers: [{provide: TUI_SANITIZER, useClass: NgDompurifySanitizer}],
+	//корневой компонент, который будет загружен при запуске приложения.
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// этот модуль (AppModule) является центральной точкой конфигурации вашего Angular приложения, и он определяет компоненты, модули и сервисы, которые будут доступны в приложении.
