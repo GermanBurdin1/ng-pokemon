@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-table',
+	//логически оно вставляется в router-outlet
   templateUrl: './pokemon-table.component.html',
   styleUrls: ['./pokemon-table.component.scss']
 })

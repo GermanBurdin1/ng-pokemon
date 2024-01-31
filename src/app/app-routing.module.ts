@@ -14,6 +14,7 @@ export const routes: Routes = [
   ] },
   { path: '**', component: LayoutErrorComponent, pathMatch: 'full' },
 ];
+//конфигурация маршрутов для Angular-приложения и определение, какие компоненты должны отображаться в зависимости от URL, который посещает пользователь.
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
